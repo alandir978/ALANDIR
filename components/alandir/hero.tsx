@@ -6,14 +6,30 @@ export function Hero() {
     <section className="relative overflow-hidden">
       {/* Mountain background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-mountains.png')" }}
+        className="absolute inset-0 bg-cover bg-center opacity-45"
+        style={{
+          backgroundImage: "url('/hero-mountains-new.png')",
+        }}
         aria-hidden="true"
       />
+
+      {/* Stella dorata fissa sulla vetta */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30"
+        className="absolute z-10"
+        style={{
+          left: '78.8%',
+          top: '17.4%',
+        }}
+        aria-hidden="true"
+      >
+        <div className="alandir-star" />
+      </div>
+
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20"
         aria-hidden="true"
       />
+
       <div
         className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"
         aria-hidden="true"
@@ -21,48 +37,40 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-[1400px] px-6 pb-14 pt-32 md:pt-36">
         <div className="max-w-2xl">
-          <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-balance md:text-5xl">
-            Tutto il mondo in borsa.
+          <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
+            ALANDIR
+            <span className="block text-gold">
+              ti aiuta ad investire.
+            </span>
           </h1>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-foreground/70 text-pretty">
-            Analisi chiare, trimestrali e valutazioni trasformate in giudizi
-            operativi.
+
+          <p className="mt-7 max-w-xl text-lg leading-8 text-white/80">
+            Analisi chiare, trimestrali e valutazioni trasformate in giudizi operativi.
           </p>
 
-          {/* Search bar */}
-          <div className="mt-8 flex items-center gap-2 rounded-2xl border border-border bg-panel/80 p-2 pl-5 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)] backdrop-blur-sm">
-            <Search className="size-5 shrink-0 text-muted-foreground" />
+          <div className="mt-10 flex max-w-2xl items-center rounded-2xl border border-white/10 bg-[#0b0f1a]/85 px-5 py-3 shadow-2xl shadow-black/40 backdrop-blur">
+            <Search className="mr-3 h-5 w-5 text-white/45" />
             <input
-              type="text"
+              className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/45"
               placeholder="Cerca un titolo, es. STM, UniCredit, NVIDIA, Apple..."
-              className="w-full bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
             />
-            <button
-              type="button"
-              aria-label="Cerca"
-              className="grid size-10 shrink-0 place-items-center rounded-xl bg-gold text-primary-foreground transition-all duration-200 hover:bg-gold-soft hover:shadow-[0_0_22px_-4px_var(--gold)]"
-            >
-              <ArrowRight className="size-5" />
+            <button className="ml-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold text-black transition hover:scale-105">
+              <ArrowRight className="h-5 w-5" />
             </button>
           </div>
 
-          {/* Ticker shortcuts */}
-          <div className="mt-5 flex flex-wrap items-center gap-2.5">
+          <div className="mt-5 flex flex-wrap gap-3">
             {tickerShortcuts.map((ticker) => (
               <button
                 key={ticker}
-                type="button"
-                className="rounded-full border border-border bg-panel/70 px-4 py-1.5 text-sm font-medium text-foreground/80 transition-all duration-200 hover:border-gold/60 hover:text-gold"
+                className="rounded-full border border-white/10 bg-[#0b0f1a]/80 px-5 py-2 text-sm font-medium text-white/85 transition hover:border-gold/50 hover:text-gold"
               >
                 {ticker}
               </button>
             ))}
-            <button
-              type="button"
-              aria-label="Aggiungi titolo"
-              className="grid size-9 place-items-center rounded-full border border-border bg-panel/70 text-foreground/80 transition-all duration-200 hover:border-gold/60 hover:text-gold"
-            >
-              <Plus className="size-4" />
+
+            <button className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0b0f1a]/80 text-white/80 transition hover:border-gold/50 hover:text-gold">
+              <Plus className="h-4 w-4" />
             </button>
           </div>
         </div>

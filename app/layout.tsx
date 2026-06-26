@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Sora } from 'next/font/google'
+import { Geist, Geist_Mono, Sora, Cinzel } from 'next/font/google'
 import './globals.css'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -13,7 +13,11 @@ const display = Sora({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
 })
-
+const cinzel = Cinzel({
+  variable: '--font-cinzel',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
 export const metadata: Metadata = {
   title: 'ALANDIR — La borsa spiegata in modo semplice',
   description:
@@ -36,7 +40,9 @@ export default function RootLayout({
       lang="it"
       className={`${geistSans.variable} ${geistMono.variable} ${display.variable} bg-background`}
     >
-      <body className="font-sans antialiased">
+      <body
+    className={`${cinzel.variable} font-sans antialiased`}
+>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

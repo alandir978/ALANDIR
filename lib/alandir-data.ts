@@ -216,7 +216,7 @@ export const markets: Market[] = [
   {
     id: 'MIB40',
     label: 'MIB40',
-    liveLabel: 'MIB40 LIVE',
+    liveLabel: 'MIB40 LIVE 🔴',
     flag: '🇮🇹',
     stocks: italianStocks,
     followed: mostFollowed,
